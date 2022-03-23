@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: CommunicationService
+
+server:
+  address: 0.0.0.0
+  port: 8090
+  error:
+    include-exception: true
+    include-message: always
+
+activity:
+  stripe-api-key: ${STRIPE_API_KEY}
