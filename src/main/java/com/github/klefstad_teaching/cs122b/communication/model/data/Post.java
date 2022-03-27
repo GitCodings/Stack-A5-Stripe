@@ -1,4 +1,4 @@
-package com.github.klefstad_teaching.cs122b.activity.four.model.data;
+package com.github.klefstad_teaching.cs122b.communication.model.data;
 
 public class Post
 {

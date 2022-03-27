@@ -1,6 +1,6 @@
-package com.github.klefstad_teaching.cs122b.activity.four.rest;
+package com.github.klefstad_teaching.cs122b.communication.rest;
 
-import com.github.klefstad_teaching.cs122b.activity.four.config.ActivityServiceConfig;
+import com.github.klefstad_teaching.cs122b.communication.config.ActivityServiceConfig;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;

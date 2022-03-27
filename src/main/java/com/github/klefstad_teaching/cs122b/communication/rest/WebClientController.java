@@ -1,6 +1,6 @@
-package com.github.klefstad_teaching.cs122b.activity.four.rest;
+package com.github.klefstad_teaching.cs122b.communication.rest;
 
-import com.github.klefstad_teaching.cs122b.activity.four.model.data.Post;
+import com.github.klefstad_teaching.cs122b.communication.model.data.Post;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

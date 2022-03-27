@@ -1,4 +1,4 @@
-package com.github.klefstad_teaching.cs122b.activity.four.config;
+package com.github.klefstad_teaching.cs122b.communication.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
