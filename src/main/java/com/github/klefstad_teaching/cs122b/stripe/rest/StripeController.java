@@ -1,6 +1,6 @@
-package com.github.klefstad_teaching.cs122b.communication.rest;
+package com.github.klefstad_teaching.cs122b.stripe.rest;
 
-import com.github.klefstad_teaching.cs122b.communication.config.ActivityServiceConfig;
+import com.github.klefstad_teaching.cs122b.stripe.config.StripeServiceConfig;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
@@ -18,10 +18,10 @@ public class StripeController
     private static final Logger LOG = LoggerFactory.getLogger(StripeController.class);
 
     @Autowired
-    public StripeController(ActivityServiceConfig config)
+    public StripeController(StripeServiceConfig config)
     {
         // We set up our Stripe by assigning the api key;
-        Stripe.apiKey = config.getStripeApiKey();
+        Stripe.apiKey = config.getApiKey();
     }
 
     @GetMapping("/stripe")

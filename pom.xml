@@ -17,8 +17,8 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>cs122b-a4-communication</artifactId>
-    <name>CS122B Activity 4: Communication</name>
+    <artifactId>cs122b-a5-stripe</artifactId>
+    <name>CS122B Activity 5: Stripe</name>
 
     <dependencies>
         <dependency>
@@ -71,7 +71,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <groupId>org.springframework.boot</groupId>
                 <configuration>
-                    <mainClass>com.github.klefstad_teaching.cs122b.communication.CommunicationService</mainClass>
+                    <mainClass>com.github.klefstad_teaching.cs122b.stripe.StripeService</mainClass>
                 </configuration>
             </plugin>
         </plugins>
