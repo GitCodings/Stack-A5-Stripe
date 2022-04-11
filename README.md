@@ -75,7 +75,7 @@ public void bigDecimal()
 
 ### Common Pattern
 
-When working with <code>BigDecimal</code> it is usually common to keep *overriding* the initial value with the new value.
+When working with `BigDecimal` it is usually common to keep *overriding* the initial value with the new value.
 
 ```java
 public void bigDecimal()
@@ -92,7 +92,7 @@ public void bigDecimal()
 
 ### Scale and RoundingMode
 
-One of the primary uses of <code>BigDecimal</code> is the ability to set the <code>scale</code> or in other terms, the amount of places after the decimal that we care about.
+One of the primary uses of `BigDecimal` is the ability to set the `scale` or in other terms, the amount of places after the decimal that we care about.
 
 ```java
 public void bigDecimal()
@@ -136,7 +136,7 @@ public void bigDecimal()
 }
 ```
 
-We can also just do all the math we need then apply the <code>RoundingMode</code> when we set the <code>scale</code>
+We can also just do all the math we need then apply the `RoundingMode` when we set the `scale`
 
 ```java
 public void bigDecimal()
