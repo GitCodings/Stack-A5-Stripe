@@ -1,15 +1,61 @@
 # CS122B Activity 5 - Stripe
 
+- [PaymentIntent](#paymentintent)
 - [BigDecimal](#bigdecimal)
+
+# PaymentIntent
+
+When we want to process a user's order we have to first create a `PaymentIntent` with Stripe. We do this by first creating an instance of `PaymentIntentCreateParams`:
+
+```java
+// Stripe takes amount in total cents
+// so $19.95 would be 1995
+Long amountInTotalCents = 1995L; 
+String description = "A description of our sale";
+String userId = Long.toString(userId);
+
+PaymentIntentCreateParams paymentIntentCreateParams =
+    PaymentIntentCreateParams
+        .builder()
+        .setCurrency("USD") // This will always be the same for our project
+        .setDescription(description)
+        .setAmount(amountInTotalCents)
+        // We use MetaData to keep track of the user that should pay for the order
+        .putMetadata("userId", userId)
+        .setAutomaticPaymentMethods(
+            // This will tell stripe to generate the payment methods automatically
+            // This will always be the same for our project
+            PaymentIntentCreateParams.AutomaticPaymentMethods
+                .builder()
+                .setEnabled(true)
+                .build()
+        )
+        .build();
+```
+
+Once we create our `PaymentIntentCreateParams` its time to create a new `PaymentIntent` with Stripe, assuming we have our `Stripe::apiKey` set with our api key this should create a new `PaymentIntent` with Stripe:
+
+```java
+PaymentIntent paymentIntent = PaymentIntent.create(paymentIntentCreateParams);
+```
+
+When we call `PaymentIntent::create(PaymentIntentCreateParams)` a PaymentIntent will be created on Stripes side and will return the resulting `PaymentIntent` that contain two values we are concerned with.
+
+```java
+String paymentIntentId = paymentIntent.getId();
+String clientSecret = paymentIntent.getClientSecret()
+```
+
+The first value `paymentIntentId` will allow us to be able to retrieve the `PaymentIntent` later (When we need to confirm is the payment has been completed). The second value `clientSecret` is needed by the frontend to give to Stripes frontend SDK to tell Stripe which intent this user should be completing.
 
 # BigDecimal
 
 When dealing with currency we want to ensure that we are working with the same scale and we are rounding in a consistent manner when applying discounts.
 
-For this we will be using Java's <code>BigDecimal</code> class. This allows us the control we need and also provides us with the numbers string format.
+For this we will be using Java's `BigDecimal` class. This allows us the control we need and also provides us with the numbers string format.
 
 ### Important
-When calling methods to calculate a <code>BigDecimal</code> a **NEW** <code>BigDecimal</code> is created and returned. The <code>BigDecimal</code> whos method was called **IS NOT MODIFIED**. This is because all instances of <code>BigDecimal</code> are **IMMUTABLE**.
+When calling methods to calculate a `BigDecimal` a **NEW** `BigDecimal` is created and returned. The `BigDecimal` whos method was called **IS NOT MODIFIED**. This is because all instances of `BigDecimal` are **IMMUTABLE**.
 
 ```java
 public void bigDecimal()
