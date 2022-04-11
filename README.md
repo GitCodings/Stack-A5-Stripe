@@ -48,6 +48,14 @@ String clientSecret = paymentIntent.getClientSecret()
 
 The first value `paymentIntentId` will allow us to be able to retrieve the `PaymentIntent` later (When we need to confirm is the payment has been completed). The second value `clientSecret` is needed by the frontend to give to Stripes frontend SDK to tell Stripe which intent this user should be completing.
 
+After the user has "completed" their payment on the frontend we send a request to the backend to tell the backend that its ready to completed this order. Before we can do this though we need to confirm with Stripe that the `PaymentIntent` is set to "succeeded". We can do this by using the `paymentIntentId` to *retrieve* the `PaymentIntent` from Stripe (Thats why we keep the `paymentIntentId`):
+
+```java
+PaymentIntent retrievedPaymentIntent = PaymentIntent.retrieve(paymentIntentId);
+
+String status = retrievedPaymentIntent.getStatus();
+```
+
 # BigDecimal
 
 When dealing with currency we want to ensure that we are working with the same scale and we are rounding in a consistent manner when applying discounts.
