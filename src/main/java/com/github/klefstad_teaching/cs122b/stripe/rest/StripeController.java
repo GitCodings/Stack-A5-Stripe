@@ -24,7 +24,7 @@ public class StripeController
         Stripe.apiKey = config.getApiKey();
     }
 
-    @GetMapping("/stripe")
+    @GetMapping("/stripe/intent")
     public ResponseEntity<String> intent()
         throws StripeException
     {
@@ -55,18 +55,21 @@ public class StripeController
 
         PaymentIntent paymentIntent = PaymentIntent.create(paymentIntentCreateParams);
 
-        // This is the client secret that we pass to our front end to let the user
-        // Complete the payment
-        LOG.info(paymentIntent.getClientSecret());
-
         // When we want to get the paymentIntent later on in our service to
         // verify that its completed we retrieve it from stripe by using its id
-
         String paymentIntentId = paymentIntent.getId();
+        LOG.info("PaymentIntent ID: {}", paymentIntentId);
 
+        // This is the client secret that we pass to our front end to let the user
+        // Complete the payment
+        LOG.info("Client Secret: {}", paymentIntent.getClientSecret());
+
+        // When the user completes their order on the front end we want to call the backend
+        // and send the paymentIntentId so that we can confirm that the order has
+        // been completed.
         PaymentIntent retrievedPaymentIntent = PaymentIntent.retrieve(paymentIntentId);
 
-        LOG.info(retrievedPaymentIntent.getStatus());
+        LOG.info("Current Status: {}", retrievedPaymentIntent.getStatus());
 
         return ResponseEntity.ok().build();
     }
