@@ -31,21 +31,20 @@ public class StripeController
         // Stripe takes amount in total cents
         // so $19.95 would be 1995
         Long amountInTotalCents = 1995L;
-
         String description = "A description of our sale";
+        String userId = Long.toString(1);
 
         PaymentIntentCreateParams paymentIntentCreateParams =
             PaymentIntentCreateParams
-                .builder()
-                .setCurrency("USD")
+                .builder
+                .setCurrency("USD") // This will always be the same for our project
                 .setDescription(description)
                 .setAmount(amountInTotalCents)
-                // we use MetaData to keep track of the
-                // user that should pay for the order
-                .putMetadata("userId", "1")
+                // We use MetaData to keep track of the user that should pay for the order
+                .putMetadata("userId", userId)
                 .setAutomaticPaymentMethods(
                     // This will tell stripe to generate the payment methods automatically
-                    // Which is what we will be doing in this course
+                    // This will always be the same for our project
                     PaymentIntentCreateParams.AutomaticPaymentMethods
                         .builder()
                         .setEnabled(true)
