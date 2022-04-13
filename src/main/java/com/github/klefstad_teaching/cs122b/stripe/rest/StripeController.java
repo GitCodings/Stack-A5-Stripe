@@ -36,7 +36,7 @@ public class StripeController
 
         PaymentIntentCreateParams paymentIntentCreateParams =
             PaymentIntentCreateParams
-                .builder
+                .builder()
                 .setCurrency("USD") // This will always be the same for our project
                 .setDescription(description)
                 .setAmount(amountInTotalCents)
