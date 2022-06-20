@@ -1,4 +1,4 @@
-package com.github.klefstad_teaching.cs122b.stripe.config;
+package com.gitcodings.stack.stripe.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;

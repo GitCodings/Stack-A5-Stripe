@@ -1,4 +1,4 @@
-# CS122B Activity 5 - Stripe
+# Stack Activity 5 - Stripe
 
 - [PaymentIntent](#paymentintent)
 - [BigDecimal](#bigdecimal)

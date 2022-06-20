@@ -1,6 +1,6 @@
-package com.github.klefstad_teaching.cs122b.stripe.rest;
+package com.gitcodings.stack.stripe.rest;
 
-import com.github.klefstad_teaching.cs122b.stripe.config.StripeServiceConfig;
+import com.gitcodings.stack.stripe.config.StripeServiceConfig;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;

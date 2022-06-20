@@ -1,6 +1,6 @@
-package com.github.klefstad_teaching.cs122b.stripe;
+package com.gitcodings.stack.stripe;
 
-import com.github.klefstad_teaching.cs122b.stripe.config.StripeServiceConfig;
+import com.gitcodings.stack.stripe.config.StripeServiceConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
